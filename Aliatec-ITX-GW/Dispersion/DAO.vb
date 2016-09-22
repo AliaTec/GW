@@ -26,6 +26,7 @@ Public Class DAO
     Private Const distribucionTotalCentroCostos As String = "spq_Reporte_DistribucionGW_TOTALES_CentroCostos '@IdRazonSocial','@IdTipoNominaAsig','@IdTipoNominaProc','@folioDesde','@folioHasta','@UID','@LID','@idAccion'"
     Private Const distribucionTotalCentroTrabajo As String = "spq_Reporte_DistribucionGW_TOTALES_CentroTrabajo '@IdRazonSocial','@IdTipoNominaAsig','@IdTipoNominaProc','@folioDesde','@folioHasta','@UID','@LID','@idAccion'"
     Private Const PolizaGW As String = "sp_Poliza_ContableGW '@IdRazonSocial','@IdTipoNominaAsig','@IdTipoNominaProc','@Anio','@Periodo','@UID','@LID','@idAccion'"
+    Private Const PolizaGWProv As String = "sp_Poliza_ContableGW_Prov '@IdRazonSocial','@IdTipoNominaAsig','@IdTipoNominaProc','@Anio','@Periodo','@UID','@LID','@idAccion'"
     Private Const PolizaGGS As String = "sp_Poliza_ContableGGS '@IdRazonSocial','@IdTipoNominaAsig','@IdTipoNominaProc','@Anio','@Periodo','@UID','@LID','@idAccion'"
     Public Sub New(ByVal DataConnection As SQLDataConnection)
         MyBase.New(DataConnection)
@@ -92,6 +93,11 @@ Public Class DAO
 
                 Case "PolizaGW"
                     comandstr = PolizaGW
+                    resultado = Me.ExecuteQuery(comandstr, ds, ReportesProceso)
+                    Return ds
+
+                Case "PolizaGWProv"
+                    comandstr = PolizaGWProv
                     resultado = Me.ExecuteQuery(comandstr, ds, ReportesProceso)
                     Return ds
 

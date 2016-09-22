@@ -90,6 +90,11 @@ Public Class Items
         newRow.Item("Case") = 100025
         Me.Rows.Add(newRow)
 
+        newRow = Me.NewRow()
+        newRow.Item("Label") = 100100
+        newRow.Item("Accion") = 100100
+        newRow.Item("Case") = 100100
+        Me.Rows.Add(newRow)
        
     End Sub
 End Class
